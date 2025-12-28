@@ -273,5 +273,6 @@ steeringSen = 0.225    # 조향 민감도
 ## 📄 License
 
 This project is licensed under the MIT License.
-#   - F i r s t - A u t o - D r i v e - C a r  
+#   - F i r s t - A u t o - D r i v e - C a r 
+ 
  
