@@ -1,0 +1,28 @@
+#### 수정해야할 부분만 보여줌
+#### STEP 7 - CREATE MODEL
+model = load_model('/폴더위치/모델이름.h5')
+
+#### STEP 9 - SAVE THE MODEL
+model.save('새로운 모델이름_rev.h5')
+print('Model Saved')
+
+
+## utils.py 파일에서 ## 
+
+def loadData(path, data):
+  imagesPath = []
+  Throttle =[]
+  Steering = []
+
+  for i in range(추가하고자하는 폴더 시작번호, 1, len(data)): ## 추가 학습하고자 하는 폴더 번호를 입력
+    indexed_data = data.iloc[i]
+    imagesPath.append( os.path.join(path,indexed_data[1]))
+    Steering.append(float(indexed_data[2]))
+    Throttle.append(float(indexed_data[3]))
+
+  Total_set = np.vstack((Steering, Throttle))
+  imagesPath = np.asarray(imagesPath)
+  Total_set_T = np.transpose(Total_set)
+  y_label = np.asarray(Total_set_T)
+  print(y_label)
+  return imagesPath, y_label
